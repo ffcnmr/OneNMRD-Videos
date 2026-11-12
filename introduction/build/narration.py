@@ -4,7 +4,8 @@ IMAGES = {
     "endcard": "../../kit/end-card.png",
     "title": "slides/title.png", "consoles": "slides/consoles.png", "seqs": "slides/seqs.png", "close": "slides/close.png",
     "ur8": "shots/10-ultrarelax8.png", "sequences": "shots/20-sequences.png", "live": "shots/30-live.png",
-    "noise": "shots/35-noise.png", "results": "shots/40-results.png", "terminal": "shots/50-terminal.png",
+    "noise": "shots/35-noise.png", "diag": "shots/45-diagnostics.png", "diag2": "shots/46-diagnostics-trends.png",
+    "results": "shots/40-results.png", "terminal": "shots/50-terminal.png",
     "ofegui": "shots/60-ofe-gui.png",
 }
 
@@ -87,6 +88,20 @@ SECTIONS = [
      "A Gaussian filter can be previewed on the last scan, before it is saved: here, twenty kilohertz, with the filtered and unfiltered averages side by side.", None, "noise", (0, 180, 2300), [(30, 1224, 560, 1480), (590, 940, 1380, 1520)]),
     ("On the ultraRelax8, a short noise and health check is compared with the machine's reference, value by value, and kept as a trend.",
      "On the ultra relax eight, a short noise and health check is compared with the machine's reference, value by value, and kept as a trend.", None, "ur8", (1900, 180, 1940), (1970, 560, 3790, 1160)),
+  ]},
+  {"title": "Magnet diagnostics", "label": "OneNMRD · Diagnostics", "sentences": [
+    ("Diagnostics watches the magnet itself, through a planned field monitor that only listens; here the simulator plays it.",
+     None, None, "diag", (0, 180, 2300), (37, 340, 2235, 400)),
+    ("It shows the Hall voltage of the magnet supply live, with the console's field-switching pulses over it.",
+     "It shows the Hall voltage of the magnet supply live, with the console's field switching pulses over it.", None, "diag", (0, 180, 2300), (42, 432, 2253, 1043)),
+    ("Every switch is also recorded at the full rate: here the last field-down and field-up transitions, with the settling band.",
+     None, None, "diag", (0, 700, 2300), [(42, 1070, 1135, 1669), (1159, 1070, 2253, 1669)]),
+    ("Each one is measured: delay, rise and fall time, overshoot, settling time and pulse width, as the last value and the mean.",
+     None, None, "diag2", (0, 180, 2300), (42, 373, 2253, 909)),
+    ("The field drift, the temperatures and the supply rails show what changes slowly; lost data is flagged, never hidden.",
+     None, None, "diag2", (0, 600, 2300), [(42, 936, 1135, 1535), (1159, 936, 2253, 1535)]),
+    ("Every time comes from the monitor's own clock, not from when the data reached the computer.",
+     None, None, "diag2", (0, 860, 2300), (42, 1562, 2253, 2108)),
   ]},
   {"title": "Fit in OFE", "label": "OneNMRD · Results", "sentences": [
     ("The final analysis is OneFit Engine's.",

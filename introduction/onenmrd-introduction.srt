@@ -1,347 +1,417 @@
 1
-00:00:00,750 --> 00:00:05,827
+00:00:00,750 --> 00:00:05,821
 OneNMRD Interface controls NMR
 relaxometry experiments and
 
 2
-00:00:05,827 --> 00:00:08,715
+00:00:05,821 --> 00:00:08,707
 analyses their NMRD profiles.
 
 3
-00:00:08,865 --> 00:00:12,524
+00:00:08,857 --> 00:00:12,525
 It works with conventional and
 fast-field-cycling consoles,
 
 4
-00:00:12,524 --> 00:00:14,115
+00:00:12,525 --> 00:00:14,119
 in your web browser.
 
 5
-00:00:14,265 --> 00:00:19,248
+00:00:14,269 --> 00:00:19,274
 Everything in this tour comes from its
 built-in simulator: no hardware is moved.
 
 6
-00:00:20,748 --> 00:00:24,455
+00:00:20,774 --> 00:00:24,632
 One interface drives different
 consoles and magnets.
 
 7
-00:00:24,605 --> 00:00:28,716
+00:00:24,782 --> 00:00:28,893
 FFC4, the fast-field-cycling
 relaxometer at IST,
 
 8
-00:00:28,716 --> 00:00:32,749
+00:00:28,893 --> 00:00:32,926
 runs on a Magritek Kea
 console with Prospa.
 
 9
-00:00:32,899 --> 00:00:36,548
+00:00:33,076 --> 00:00:36,711
 The Resonance Systems
 ultraRelax8 runs through uSpin32,
 
 10
-00:00:36,548 --> 00:00:40,216
+00:00:36,711 --> 00:00:40,366
 with generated run scripts
 and its exported scans.
 
 11
-00:00:40,366 --> 00:00:45,155
+00:00:40,516 --> 00:00:45,375
 The simulator stands in for either
 console, for training and testing.
 
 12
-00:00:46,655 --> 00:00:51,557
+00:00:46,875 --> 00:00:51,947
 Each console is chosen at the top,
 with its own settings and hardware.
 
 13
-00:00:51,707 --> 00:00:55,389
+00:00:52,097 --> 00:00:55,886
 On the ultraRelax8, the
 field-cycling device levels,
 
 14
-00:00:55,389 --> 00:00:58,434
+00:00:55,886 --> 00:00:59,019
 V1 and V2, come from
 the field calibration,
 
 15
-00:00:58,434 --> 00:01:00,696
+00:00:59,019 --> 00:01:01,336
 within the firmware limits.
 
 16
-00:01:02,196 --> 00:01:05,551
+00:01:02,836 --> 00:01:06,408
 The sequences are field-cycling
 and standard ones.
 
 17
-00:01:05,701 --> 00:01:07,632
+00:01:06,558 --> 00:01:08,416
 Eight field-cycling sequences:
 
 18
-00:01:07,632 --> 00:01:11,043
+00:01:08,416 --> 00:01:11,699
 polarised at high field or
 starting from a low field,
 
 19
-00:01:11,043 --> 00:01:15,126
+00:01:11,699 --> 00:01:15,640
 with inversion or saturation,
 each also with a solid echo.
 
 20
-00:01:15,276 --> 00:01:20,032
+00:01:15,790 --> 00:01:20,578
 Inversion recovery and saturation
 recovery are the standard T1 sequences,
 
 21
-00:01:20,032 --> 00:01:22,663
+00:01:20,578 --> 00:01:23,223
 at fixed field, on the ultraRelax8.
 
 22
-00:01:22,813 --> 00:01:27,162
+00:01:23,373 --> 00:01:27,744
 RF tuning, and a Tune of any
 sequence, come before the run.
 
 23
-00:01:28,662 --> 00:01:32,216
+00:01:29,244 --> 00:01:32,882
 Each timing diagram is drawn from
 the sequence's own pulse program,
 
 24
-00:01:32,216 --> 00:01:34,052
+00:01:32,882 --> 00:01:34,752
 with the current parameters.
 
 25
-00:01:34,202 --> 00:01:36,072
+00:01:34,902 --> 00:01:36,813
 It shows the field switching,
 
 26
-00:01:36,072 --> 00:01:38,265
+00:01:36,813 --> 00:01:39,054
 the RF pulses and the acquisition;
 
 27
-00:01:38,265 --> 00:01:41,453
+00:01:39,054 --> 00:01:42,304
 every segment opens the
 parameter behind it.
 
 28
-00:01:41,603 --> 00:01:44,860
+00:01:42,454 --> 00:01:45,705
 The plan lists temperature,
 field, sequence,
 
 29
-00:01:44,860 --> 00:01:49,651
+00:01:45,705 --> 00:01:50,488
 scans and τ values for each
 row, and estimates the run time.
 
 30
-00:01:49,801 --> 00:01:53,198
+00:01:50,638 --> 00:01:54,035
 Settings records which
 sequences the hardware has.
 
 31
-00:01:54,698 --> 00:01:58,603
+00:01:55,535 --> 00:01:59,672
 Run plan starts the experiment,
 one row after another.
 
 32
-00:01:58,753 --> 00:02:03,318
+00:01:59,822 --> 00:02:04,324
 Live acquisition shows every scan
 as it arrives, with its spectrum.
 
 33
-00:02:03,468 --> 00:02:09,689
+00:02:04,474 --> 00:02:10,781
 M is taken in the Mz window, with its σ,
 the noise, and the signal-to-noise ratio.
 
 34
-00:02:09,839 --> 00:02:12,937
+00:02:10,931 --> 00:02:14,068
 The average gets quieter
 as the scans add up.
 
 35
-00:02:13,087 --> 00:02:17,114
+00:02:14,218 --> 00:02:18,145
 M(τ) of the current field
 builds up, point by point.
 
 36
-00:02:17,264 --> 00:02:20,916
+00:02:18,295 --> 00:02:21,988
 When a field is complete, it
 is fitted at once, with one,
 
 37
-00:02:20,916 --> 00:02:24,021
+00:02:21,988 --> 00:02:25,123
 two or three exponentials,
 in milliseconds.
 
 38
-00:02:24,171 --> 00:02:26,319
+00:02:25,273 --> 00:02:27,320
 Meanwhile, Results follows the run:
 
 39
-00:02:26,319 --> 00:02:30,843
+00:02:27,320 --> 00:02:31,647
 each finished field can be looked
 at while the next one is measured.
 
 40
-00:02:32,343 --> 00:02:35,126
+00:02:33,147 --> 00:02:35,874
 The noise analysis is your choice.
 
 41
-00:02:35,276 --> 00:02:37,820
+00:02:36,024 --> 00:02:38,536
 The phase treatment can
 be phase independent,
 
 42
-00:02:37,820 --> 00:02:39,177
+00:02:38,536 --> 00:02:39,876
 two-phase or four-phase,
 
 43
-00:02:39,177 --> 00:02:42,127
+00:02:39,876 --> 00:02:42,793
 with the noise from the
 scatter between scans.
 
 44
-00:02:42,277 --> 00:02:46,399
+00:02:42,943 --> 00:02:47,161
 The previous Prospa analysis
 stays available, for comparison.
 
 45
-00:02:46,549 --> 00:02:51,487
+00:02:47,311 --> 00:02:52,341
 A Gaussian filter can be previewed
 on the last scan before it is saved:
 
 46
-00:02:51,487 --> 00:02:52,322
+00:02:52,341 --> 00:02:53,191
 here 20 kHz,
 
 47
-00:02:52,322 --> 00:02:56,497
+00:02:53,191 --> 00:02:57,438
 with the filtered and unfiltered
 averages side by side.
 
 48
-00:02:56,647 --> 00:02:58,007
+00:02:57,588 --> 00:02:58,907
 On the ultraRelax8,
 
 49
-00:02:58,007 --> 00:03:03,162
+00:02:58,907 --> 00:03:03,908
 a short noise and health check is
 compared with the machine's reference,
 
 50
-00:03:03,162 --> 00:03:06,089
+00:03:03,908 --> 00:03:06,759
 value by value, and kept as a trend.
 
 51
-00:03:07,589 --> 00:03:10,689
-The final analysis is OneFit Engine's.
+00:03:08,259 --> 00:03:10,548
+Diagnostics watches the magnet itself,
 
 52
-00:03:10,839 --> 00:03:13,893
-Fit in OFE fits every field with OFE-Go,
+00:03:10,548 --> 00:03:13,560
+through a planned field
+monitor that only listens;
 
 53
-00:03:13,893 --> 00:03:17,483
+00:03:13,560 --> 00:03:15,597
+here the simulator plays it.
+
+54
+00:03:15,747 --> 00:03:18,630
+It shows the Hall voltage
+of the magnet supply live,
+
+55
+00:03:18,630 --> 00:03:21,753
+with the console's
+field-switching pulses over it.
+
+56
+00:03:21,903 --> 00:03:24,738
+Every switch is also
+recorded at the full rate:
+
+57
+00:03:24,738 --> 00:03:27,755
+here the last field-down
+and field-up transitions,
+
+58
+00:03:27,755 --> 00:03:29,493
+with the settling band.
+
+59
+00:03:29,643 --> 00:03:34,289
+Each one is measured: delay,
+rise and fall time, overshoot,
+
+60
+00:03:34,289 --> 00:03:39,521
+settling time and pulse width,
+as the last value and the mean.
+
+61
+00:03:39,671 --> 00:03:40,723
+The field drift,
+
+62
+00:03:40,723 --> 00:03:44,867
+the temperatures and the supply
+rails show what changes slowly;
+
+63
+00:03:44,867 --> 00:03:47,519
+lost data is flagged, never hidden.
+
+64
+00:03:47,669 --> 00:03:50,061
+Every time comes from
+the monitor's own clock,
+
+65
+00:03:50,061 --> 00:03:52,699
+not from when the data
+reached the computer.
+
+66
+00:03:54,199 --> 00:03:57,126
+The final analysis is OneFit Engine's.
+
+67
+00:03:57,276 --> 00:04:00,267
+Fit in OFE fits every field with OFE-Go,
+
+68
+00:04:00,267 --> 00:04:03,782
 with MINOS errors and
 reduced chi-square: here,
 
-54
-00:03:17,483 --> 00:03:20,353
+69
+00:04:03,782 --> 00:04:06,599
 four fields in about two seconds.
 
-55
-00:03:20,503 --> 00:03:22,426
+70
+00:04:06,749 --> 00:04:08,643
 The T1 dispersion is plotted,
 
-56
-00:03:22,426 --> 00:03:26,424
+71
+00:04:08,643 --> 00:04:12,583
 together with the T1 that
 Prospa wrote, for comparison.
 
-57
-00:03:26,574 --> 00:03:30,762
+72
+00:04:12,733 --> 00:04:17,100
 The models are full OFE
 expressions, and can be edited.
 
-58
-00:03:32,262 --> 00:03:36,732
+73
+00:04:18,600 --> 00:04:23,095
 Open in OFE-GUI sends the
 fit to a running OFE-GUI.
 
-59
-00:03:36,882 --> 00:03:40,350
+74
+00:04:23,245 --> 00:04:26,770
 It refits it and plots every
 field, to change the model,
 
-60
-00:03:40,350 --> 00:03:42,558
+75
+00:04:26,770 --> 00:04:29,009
 the bounds or the plots there.
 
-61
-00:03:44,058 --> 00:03:48,521
+76
+00:04:30,509 --> 00:04:35,069
 The Terminal pane is a real shell
 on the computer running OneNMRD,
 
-62
-00:03:48,521 --> 00:03:51,441
+77
+00:04:35,069 --> 00:04:38,045
 inside the page. It is off by default.
 
-63
-00:03:51,591 --> 00:03:56,071
+78
+00:04:38,195 --> 00:04:42,832
 Its Claude and Codex buttons start a
 separately installed coding agent there,
 
-64
-00:03:56,071 --> 00:03:58,865
+79
+00:04:42,832 --> 00:04:45,712
 in a Docker sandbox when one is available.
 
-65
-00:03:59,015 --> 00:04:03,200
+80
+00:04:45,862 --> 00:04:50,207
 OneNMRD writes an AGENTS file
 for them: how to reach the GUI,
 
-66
-00:04:03,200 --> 00:04:06,089
+81
+00:04:50,207 --> 00:04:53,193
 the hardware rules, and the JSON API.
 
-67
-00:04:06,239 --> 00:04:10,265
+82
+00:04:53,343 --> 00:04:57,477
 Here the API lists the
 run and its four fields.
 
-68
-00:04:10,415 --> 00:04:13,999
+83
+00:04:57,627 --> 00:05:01,259
 A Tune or a Run asked for by an
 agent waits for your Approve;
 
-69
-00:04:13,999 --> 00:04:15,700
+84
+00:05:01,259 --> 00:05:02,978
 Stop is always allowed.
 
-70
-00:04:17,200 --> 00:04:20,929
+85
+00:05:04,478 --> 00:05:07,910
 Plan, acquire, watch, and fit.
 
-71
-00:04:21,079 --> 00:04:25,310
+86
+00:05:08,060 --> 00:05:12,522
 OneNMRD Interface drives
 FFC4 and the ultraRelax8,
 
-72
-00:04:25,310 --> 00:04:29,044
+87
+00:05:12,522 --> 00:05:16,441
 and hands the analysis to OneFit Engine.
 
-73
-00:04:29,194 --> 00:04:33,634
+88
+00:05:16,591 --> 00:05:20,886
 It is distributed under the
 Artistic License 2.0. Prospa and
 
-74
-00:04:33,634 --> 00:04:35,854
+89
+00:05:20,886 --> 00:05:23,033
 uSpin32 are separate products,
 
-75
-00:04:35,854 --> 00:04:37,758
+90
+00:05:23,033 --> 00:05:24,886
 and are not included.

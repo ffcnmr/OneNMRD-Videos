@@ -19,6 +19,9 @@ Run plan starts the experiment, one row after another. Live acquisition shows ev
 Noise
 The noise analysis is your choice. The phase treatment can be phase independent, two-phase or four-phase, with the noise from the scatter between scans. The previous Prospa analysis stays available, for comparison. A Gaussian filter can be previewed on the last scan before it is saved: here 20 kHz, with the filtered and unfiltered averages side by side. On the ultraRelax8, a short noise and health check is compared with the machine's reference, value by value, and kept as a trend.
 
+Magnet diagnostics
+Diagnostics watches the magnet itself, through a planned field monitor that only listens; here the simulator plays it. It shows the Hall voltage of the magnet supply live, with the console's field-switching pulses over it. Every switch is also recorded at the full rate: here the last field-down and field-up transitions, with the settling band. Each one is measured: delay, rise and fall time, overshoot, settling time and pulse width, as the last value and the mean. The field drift, the temperatures and the supply rails show what changes slowly; lost data is flagged, never hidden. Every time comes from the monitor's own clock, not from when the data reached the computer.
+
 Fit in OFE
 The final analysis is OneFit Engine's. Fit in OFE fits every field with OFE-Go, with MINOS errors and reduced chi-square: here, four fields in about two seconds. The T1 dispersion is plotted, together with the T1 that Prospa wrote, for comparison. The models are full OFE expressions, and can be edited.
 
