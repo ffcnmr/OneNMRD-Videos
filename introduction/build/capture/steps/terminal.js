@@ -1,0 +1,11 @@
+await page.getByRole('button', { name: 'Restart', exact: true }).click();
+await page.waitForTimeout(2000);
+const term = await page.$('.xterm-helper-textarea');
+await term.focus();
+const type = async (s, w = 1200) => { await page.keyboard.type(s, { delay: 8 }); await page.keyboard.press('Enter'); await page.waitForTimeout(w); };
+await type('export TERM=xterm-256color; clear', 800);
+await type("grep '^## ' AGENTS.md");
+await type("curl -s 127.0.0.1:8090/api/results | jq -r '.[].name'");
+await type("curl -s 127.0.0.1:8090/api/results/sim-4-42-5-12-11-26 | jq -c '.fields[] | {f, points: (.points | length)}'", 1800);
+await page.keyboard.press('Alt+Shift+KeyT');
+await page.waitForTimeout(500);

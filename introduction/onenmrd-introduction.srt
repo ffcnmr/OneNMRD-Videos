@@ -1,0 +1,347 @@
+1
+00:00:00,750 --> 00:00:05,827
+OneNMRD Interface controls NMR
+relaxometry experiments and
+
+2
+00:00:05,827 --> 00:00:08,715
+analyses their NMRD profiles.
+
+3
+00:00:08,865 --> 00:00:12,524
+It works with conventional and
+fast-field-cycling consoles,
+
+4
+00:00:12,524 --> 00:00:14,115
+in your web browser.
+
+5
+00:00:14,265 --> 00:00:19,248
+Everything in this tour comes from its
+built-in simulator: no hardware is moved.
+
+6
+00:00:20,748 --> 00:00:24,455
+One interface drives different
+consoles and magnets.
+
+7
+00:00:24,605 --> 00:00:28,716
+FFC4, the fast-field-cycling
+relaxometer at IST,
+
+8
+00:00:28,716 --> 00:00:32,749
+runs on a Magritek Kea
+console with Prospa.
+
+9
+00:00:32,899 --> 00:00:36,548
+The Resonance Systems
+ultraRelax8 runs through uSpin32,
+
+10
+00:00:36,548 --> 00:00:40,216
+with generated run scripts
+and its exported scans.
+
+11
+00:00:40,366 --> 00:00:45,155
+The simulator stands in for either
+console, for training and testing.
+
+12
+00:00:46,655 --> 00:00:51,557
+Each console is chosen at the top,
+with its own settings and hardware.
+
+13
+00:00:51,707 --> 00:00:55,389
+On the ultraRelax8, the
+field-cycling device levels,
+
+14
+00:00:55,389 --> 00:00:58,434
+V1 and V2, come from
+the field calibration,
+
+15
+00:00:58,434 --> 00:01:00,696
+within the firmware limits.
+
+16
+00:01:02,196 --> 00:01:05,551
+The sequences are field-cycling
+and standard ones.
+
+17
+00:01:05,701 --> 00:01:07,632
+Eight field-cycling sequences:
+
+18
+00:01:07,632 --> 00:01:11,043
+polarised at high field or
+starting from a low field,
+
+19
+00:01:11,043 --> 00:01:15,126
+with inversion or saturation,
+each also with a solid echo.
+
+20
+00:01:15,276 --> 00:01:20,032
+Inversion recovery and saturation
+recovery are the standard T1 sequences,
+
+21
+00:01:20,032 --> 00:01:22,663
+at fixed field, on the ultraRelax8.
+
+22
+00:01:22,813 --> 00:01:27,162
+RF tuning, and a Tune of any
+sequence, come before the run.
+
+23
+00:01:28,662 --> 00:01:32,216
+Each timing diagram is drawn from
+the sequence's own pulse program,
+
+24
+00:01:32,216 --> 00:01:34,052
+with the current parameters.
+
+25
+00:01:34,202 --> 00:01:36,072
+It shows the field switching,
+
+26
+00:01:36,072 --> 00:01:38,265
+the RF pulses and the acquisition;
+
+27
+00:01:38,265 --> 00:01:41,453
+every segment opens the
+parameter behind it.
+
+28
+00:01:41,603 --> 00:01:44,860
+The plan lists temperature,
+field, sequence,
+
+29
+00:01:44,860 --> 00:01:49,651
+scans and τ values for each
+row, and estimates the run time.
+
+30
+00:01:49,801 --> 00:01:53,198
+Settings records which
+sequences the hardware has.
+
+31
+00:01:54,698 --> 00:01:58,603
+Run plan starts the experiment,
+one row after another.
+
+32
+00:01:58,753 --> 00:02:03,318
+Live acquisition shows every scan
+as it arrives, with its spectrum.
+
+33
+00:02:03,468 --> 00:02:09,689
+M is taken in the Mz window, with its σ,
+the noise, and the signal-to-noise ratio.
+
+34
+00:02:09,839 --> 00:02:12,937
+The average gets quieter
+as the scans add up.
+
+35
+00:02:13,087 --> 00:02:17,114
+M(τ) of the current field
+builds up, point by point.
+
+36
+00:02:17,264 --> 00:02:20,916
+When a field is complete, it
+is fitted at once, with one,
+
+37
+00:02:20,916 --> 00:02:24,021
+two or three exponentials,
+in milliseconds.
+
+38
+00:02:24,171 --> 00:02:26,319
+Meanwhile, Results follows the run:
+
+39
+00:02:26,319 --> 00:02:30,843
+each finished field can be looked
+at while the next one is measured.
+
+40
+00:02:32,343 --> 00:02:35,126
+The noise analysis is your choice.
+
+41
+00:02:35,276 --> 00:02:37,820
+The phase treatment can
+be phase independent,
+
+42
+00:02:37,820 --> 00:02:39,177
+two-phase or four-phase,
+
+43
+00:02:39,177 --> 00:02:42,127
+with the noise from the
+scatter between scans.
+
+44
+00:02:42,277 --> 00:02:46,399
+The previous Prospa analysis
+stays available, for comparison.
+
+45
+00:02:46,549 --> 00:02:51,487
+A Gaussian filter can be previewed
+on the last scan before it is saved:
+
+46
+00:02:51,487 --> 00:02:52,322
+here 20 kHz,
+
+47
+00:02:52,322 --> 00:02:56,497
+with the filtered and unfiltered
+averages side by side.
+
+48
+00:02:56,647 --> 00:02:58,007
+On the ultraRelax8,
+
+49
+00:02:58,007 --> 00:03:03,162
+a short noise and health check is
+compared with the machine's reference,
+
+50
+00:03:03,162 --> 00:03:06,089
+value by value, and kept as a trend.
+
+51
+00:03:07,589 --> 00:03:10,689
+The final analysis is OneFit Engine's.
+
+52
+00:03:10,839 --> 00:03:13,893
+Fit in OFE fits every field with OFE-Go,
+
+53
+00:03:13,893 --> 00:03:17,483
+with MINOS errors and
+reduced chi-square: here,
+
+54
+00:03:17,483 --> 00:03:20,353
+four fields in about two seconds.
+
+55
+00:03:20,503 --> 00:03:22,426
+The T1 dispersion is plotted,
+
+56
+00:03:22,426 --> 00:03:26,424
+together with the T1 that
+Prospa wrote, for comparison.
+
+57
+00:03:26,574 --> 00:03:30,762
+The models are full OFE
+expressions, and can be edited.
+
+58
+00:03:32,262 --> 00:03:36,732
+Open in OFE-GUI sends the
+fit to a running OFE-GUI.
+
+59
+00:03:36,882 --> 00:03:40,350
+It refits it and plots every
+field, to change the model,
+
+60
+00:03:40,350 --> 00:03:42,558
+the bounds or the plots there.
+
+61
+00:03:44,058 --> 00:03:48,521
+The Terminal pane is a real shell
+on the computer running OneNMRD,
+
+62
+00:03:48,521 --> 00:03:51,441
+inside the page. It is off by default.
+
+63
+00:03:51,591 --> 00:03:56,071
+Its Claude and Codex buttons start a
+separately installed coding agent there,
+
+64
+00:03:56,071 --> 00:03:58,865
+in a Docker sandbox when one is available.
+
+65
+00:03:59,015 --> 00:04:03,200
+OneNMRD writes an AGENTS file
+for them: how to reach the GUI,
+
+66
+00:04:03,200 --> 00:04:06,089
+the hardware rules, and the JSON API.
+
+67
+00:04:06,239 --> 00:04:10,265
+Here the API lists the
+run and its four fields.
+
+68
+00:04:10,415 --> 00:04:13,999
+A Tune or a Run asked for by an
+agent waits for your Approve;
+
+69
+00:04:13,999 --> 00:04:15,700
+Stop is always allowed.
+
+70
+00:04:17,200 --> 00:04:20,929
+Plan, acquire, watch, and fit.
+
+71
+00:04:21,079 --> 00:04:25,310
+OneNMRD Interface drives
+FFC4 and the ultraRelax8,
+
+72
+00:04:25,310 --> 00:04:29,044
+and hands the analysis to OneFit Engine.
+
+73
+00:04:29,194 --> 00:04:33,634
+It is distributed under the
+Artistic License 2.0. Prospa and
+
+74
+00:04:33,634 --> 00:04:35,854
+uSpin32 are separate products,
+
+75
+00:04:35,854 --> 00:04:37,758
+and are not included.

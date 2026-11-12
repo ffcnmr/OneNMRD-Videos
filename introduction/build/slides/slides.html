@@ -1,0 +1,80 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>slides</title>
+<style>
+  :root { --bg:#0f1418; --panel:#161d23; --ink:#e4edf5; --dim:#8fa3b5; --acc:#5aa8ff; --orange:#f2a64f; --red:#ff5a4f; }
+  html,body { margin:0; width:1920px; height:1080px; background:var(--bg); color:var(--ink); font-family:"Liberation Sans","DejaVu Sans",sans-serif; overflow:hidden; }
+  .slide { position:absolute; inset:0; display:none; padding:110px 140px; box-sizing:border-box;
+    background: radial-gradient(1200px 700px at 85% 15%, rgba(90,168,255,.10), transparent 60%), radial-gradient(900px 600px at 10% 95%, rgba(242,166,79,.08), transparent 60%), var(--bg); }
+  .slide.on { display:flex; flex-direction:column; justify-content:center; }
+  .kicker { font-size:30px; letter-spacing:.18em; text-transform:uppercase; color:var(--acc); font-weight:700; }
+  h1 { font-size:96px; margin:24px 0 18px; line-height:1.05; }
+  h1 small { display:block; font-size:44px; font-weight:600; letter-spacing:.12em; color:var(--dim); margin-top:10px; }
+  h2 { font-size:72px; margin:20px 0 26px; line-height:1.1; }
+  .sub { font-size:40px; color:var(--dim); line-height:1.35; max-width:1500px; }
+  .brand { display:flex; align-items:center; gap:44px; }
+  .brand img { width:250px; }
+  .rule { height:6px; width:180px; background:linear-gradient(90deg,var(--acc),var(--orange)); border-radius:3px; margin:34px 0; }
+  .bar { align-self:flex-start; display:flex; gap:22px; flex-wrap:wrap; margin-top:20px; }
+  .chip { background:var(--panel); border:2px solid #26313a; border-radius:14px; padding:20px 30px; font-size:34px; }
+  .chip b { color:var(--acc); }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:50px; }
+  .card { background:var(--panel); border:2px solid #26313a; border-radius:22px; padding:40px 40px; min-height:380px; box-sizing:border-box; }
+  .card h3 { font-size:46px; margin:0 0 10px; }
+  .card .who { font-size:28px; color:var(--orange); font-weight:700; margin:0 0 22px; letter-spacing:.04em; }
+  .card p { font-size:31px; color:var(--dim); line-height:1.4; margin:0; }
+  .seq { font-family:"DejaVu Sans Mono","Liberation Mono",monospace; font-size:25px; color:var(--ink); margin-top:22px; line-height:1.6; }
+  .seq i { font-style:normal; color:var(--acc); }
+  .flow { display:flex; align-items:center; gap:28px; margin:10px 0 60px; font-size:50px; font-weight:700; }
+  .flow span.a { color:var(--dim); font-weight:400; }
+  .fine { font-size:31px; color:var(--dim); line-height:1.5; max-width:1600px; }
+  .badge { align-self:flex-start; display:inline-block; margin-top:46px; padding:14px 30px; border:3px solid var(--orange); color:var(--orange); border-radius:12px; font-size:30px; font-weight:700; letter-spacing:.2em; }
+</style></head>
+<body>
+
+<section class="slide" id="title">
+  <div class="brand"><img src="logo-dark.svg" alt=""><div>
+    <div class="kicker">NMR relaxometry · NMRD profiles</div>
+    <h1>OneNMRD<small>INTERFACE</small></h1>
+    <div class="sub">for conventional and fast-field-cycling consoles</div>
+  </div></div>
+  <div class="rule" style="margin-left:294px"></div>
+  <div class="sub" style="margin-left:294px;font-size:32px">Plan, acquire, watch every scan, and fit with OneFit Engine</div>
+</section>
+
+<section class="slide" id="consoles">
+  <div class="kicker">Consoles and magnets</div>
+  <h2>One interface, different hardware</h2>
+  <div class="cards">
+    <div class="card" data-hl="ffc4"><h3>FFC4</h3><div class="who">MAGRITEK KEA · PROSPA</div><p>The fourth-generation fast-field-cycling relaxometer at IST: field switching by the Kea's TTL lines and X DAC.</p></div>
+    <div class="card" data-hl="ur8"><h3>ultraRelax8</h3><div class="who">RESONANCE SYSTEMS · uSPIN32</div><p>Run scripts and scan files through uSpin32's command tool; the FFC device levels V1 and V2 from a field calibration.</p></div>
+    <div class="card" data-hl="sim"><h3>Simulator</h3><div class="who">BUILT IN</div><p>Simulated scans, noise and relaxation, for training and testing. It moves no hardware and qualifies none.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="seqs">
+  <div class="kicker">Pulse sequences</div>
+  <h2>Field-cycling and standard sequences</h2>
+  <div class="cards">
+    <div class="card" data-hl="ffc"><h3>FFC #1 – #8</h3><div class="who">FIELD CYCLING</div><p>Polarised at high field, or from a low field B0; with inversion or saturation. Each also with a solid echo.</p>
+      <div class="seq">Bup.D1.<i>Bd.τ</i>.Bup.P1x.Acq<br>Bup.D1.P2.<i>Bd.τ</i>.Bup.P1x.Acq</div></div>
+    <div class="card" data-hl="fixed"><h3>T1 #9, #10</h3><div class="who">FIXED FIELD</div><p>The standard inversion recovery and saturation recovery, at the magnet's own field.</p>
+      <div class="seq">D1.P2.<i>τ</i>.P1x.Acq<br>nP1x.<i>τ</i>.P1x.Acq</div></div>
+    <div class="card" data-hl="tune"><h3>Tune</h3><div class="who">RF AND SEQUENCES</div><p>One-pulse and solid-echo RF tuning, and a Tune of any sequence before the run, then Store.</p>
+      <div class="seq">P1x.Acq<br>P1x.P1y.Acq</div></div>
+  </div>
+</section>
+
+<section class="slide" id="close">
+  <div class="kicker">OneNMRD Interface</div>
+  <div class="flow">Plan <span class="a">→</span> acquire <span class="a">→</span> watch <span class="a">→</span> fit</div>
+  <div class="bar"><div class="chip"><b>FFC4</b> Kea · Prospa</div><div class="chip"><b>ultraRelax8</b> uSpin32</div><div class="chip"><b>OneFit Engine</b> for the analysis</div></div>
+  <div class="rule"></div>
+  <div class="fine">OneNMRD is distributed under the Artistic License 2.0. Magritek's Prospa and Resonance Systems' uSpin32<br>are separate products, not included. The screens in this video come from the built-in simulator.</div>
+  <div class="badge">SIMULATED CONSOLE</div>
+</section>
+
+<script>
+  const id = new URLSearchParams(location.search).get("s") || "title";
+  document.getElementById(id).classList.add("on");
+</script>
+</body></html>

@@ -1,0 +1,32 @@
+OneNMRD Interface
+OneNMRD Interface controls NMR relaxometry experiments and analyses their NMRD profiles. It works with conventional and fast-field-cycling consoles, in your web browser. Everything in this tour comes from its built-in simulator: no hardware is moved.
+
+Consoles and magnets
+One interface drives different consoles and magnets. FFC4, the fast-field-cycling relaxometer at IST, runs on a Magritek Kea console with Prospa. The Resonance Systems ultraRelax8 runs through uSpin32, with generated run scripts and its exported scans. The simulator stands in for either console, for training and testing.
+
+ultraRelax8
+Each console is chosen at the top, with its own settings and hardware. On the ultraRelax8, the field-cycling device levels, V1 and V2, come from the field calibration, within the firmware limits.
+
+Pulse sequences
+The sequences are field-cycling and standard ones. Eight field-cycling sequences: polarised at high field or starting from a low field, with inversion or saturation, each also with a solid echo. Inversion recovery and saturation recovery are the standard T1 sequences, at fixed field, on the ultraRelax8. RF tuning, and a Tune of any sequence, come before the run.
+
+Sequences and plan
+Each timing diagram is drawn from the sequence's own pulse program, with the current parameters. It shows the field switching, the RF pulses and the acquisition; every segment opens the parameter behind it. The plan lists temperature, field, sequence, scans and τ values for each row, and estimates the run time. Settings records which sequences the hardware has.
+
+Live acquisition
+Run plan starts the experiment, one row after another. Live acquisition shows every scan as it arrives, with its spectrum. M is taken in the Mz window, with its σ, the noise, and the signal-to-noise ratio. The average gets quieter as the scans add up. M(τ) of the current field builds up, point by point. When a field is complete, it is fitted at once, with one, two or three exponentials, in milliseconds. Meanwhile, Results follows the run: each finished field can be looked at while the next one is measured.
+
+Noise
+The noise analysis is your choice. The phase treatment can be phase independent, two-phase or four-phase, with the noise from the scatter between scans. The previous Prospa analysis stays available, for comparison. A Gaussian filter can be previewed on the last scan before it is saved: here 20 kHz, with the filtered and unfiltered averages side by side. On the ultraRelax8, a short noise and health check is compared with the machine's reference, value by value, and kept as a trend.
+
+Fit in OFE
+The final analysis is OneFit Engine's. Fit in OFE fits every field with OFE-Go, with MINOS errors and reduced chi-square: here, four fields in about two seconds. The T1 dispersion is plotted, together with the T1 that Prospa wrote, for comparison. The models are full OFE expressions, and can be edited.
+
+OFE-GUI
+Open in OFE-GUI sends the fit to a running OFE-GUI. It refits it and plots every field, to change the model, the bounds or the plots there.
+
+Terminal and AI agents
+The Terminal pane is a real shell on the computer running OneNMRD, inside the page. It is off by default. Its Claude and Codex buttons start a separately installed coding agent there, in a Docker sandbox when one is available. OneNMRD writes an AGENTS file for them: how to reach the GUI, the hardware rules, and the JSON API. Here the API lists the run and its four fields. A Tune or a Run asked for by an agent waits for your Approve; Stop is always allowed.
+
+OneNMRD Interface
+Plan, acquire, watch, and fit. OneNMRD Interface drives FFC4 and the ultraRelax8, and hands the analysis to OneFit Engine. It is distributed under the Artistic License 2.0. Prospa and uSpin32 are separate products, and are not included.
