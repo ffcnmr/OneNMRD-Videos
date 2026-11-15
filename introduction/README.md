@@ -1,22 +1,20 @@
 # OneNMRD Interface introduction
 
-[`onenmrd-introduction.mp4`](https://github.com/ffcnmr/OneNMRD-Videos/releases/latest/download/onenmrd-introduction.mp4) is a 5 minute 30 second, 1920×1080 introduction with English narration and an embedded English subtitle track (soft subtitles; turn them on in the player). [`onenmrd-introduction.srt`](onenmrd-introduction.srt) holds the same subtitles as a separate file, and [`onenmrd-introduction-script.txt`](onenmrd-introduction-script.txt) holds the full script.
+[`onenmrd-introduction.mp4`](https://github.com/ffcnmr/OneNMRD-Videos/releases/latest/download/onenmrd-introduction.mp4) is a 6 minute 19 second, 1920×1080 introduction with English narration and an embedded English subtitle track (soft subtitles; turn them on in the player). [`onenmrd-introduction.srt`](onenmrd-introduction.srt) holds the same subtitles as a separate file, and [`onenmrd-introduction-script.txt`](onenmrd-introduction-script.txt) holds the full script.
 
 It covers:
 
-- the consoles and magnets: FFC4 (Magritek Kea with Prospa) and the Resonance Systems ultraRelax8 (uSpin32), with its FFC device levels V1 and V2 from the field calibration;
+- the complete setups: **FFC + Kea**, **FFC + uSpin32**, and **Fixed field + uSpin32**; the FFC4/ultraRelax8 consoles, compatible magnets, and calibrated FFC device levels V1 and V2;
 - the field-cycling sequences #1–#8, the fixed-field T1 inversion and saturation recovery (#9, #10), RF tuning, the timing diagrams and the plan;
 - live acquisition: every scan, its spectrum, the average, M ± σ, noise and S/N, M(τ) building up and the live fit of each finished field, with Results following the run;
 - the noise analysis choices (phase treatment, scan-scatter estimator, the previous Prospa analysis for comparison), a Gaussian filter preview, and the ultraRelax8's noise and health check;
-- magnet diagnostics (preliminary; the planned read-only field monitor, played by the simulator): the live Hall voltage with the TTL pulses, the last field-down and field-up transitions, their measurements, drift, temperatures and rails, and the recent edges on the monitor's own clock;
+- magnet-defined diagnostic groups, channels, units and direct/vendor-console routes; temperature trends, supply snapshots at actual plan-row starts, explicitly unavailable PID gains, live Hall/TTL plots, full-rate field transitions, measurements, drift and device-clock timestamps; fixed-field setups hide unneeded switching panels;
 - Fit in OFE (OFE-Go) and Open in OFE-GUI;
 - the Terminal pane with its agent buttons and the AGENTS.md OneNMRD writes for them.
 
-**The published November 12 cut** uses OneNMRD v0.6.1 and OFE-Go/OFE-GUI 0.5.14.
+**This cut updates the original introduction for OneNMRD v0.10.0.** It retains the narrated tour, slides, camera movements, highlights and end card. OneNMRD screens use the released v0.10.0 binary and Dim theme; the OFE scenes use OFE-Go 0.5.14 and OFE-GUI 0.5.15. The female British English Alba voice is slightly slower, with longer sentence pauses and the model card’s recommended noise settings. The new diagnostic routes are configuration/simulator support; native hardware drivers still require qualification.
 
-**The v0.10.0 refresh is in preparation:** its current script and captures in this branch retain the original narrated introduction, slides, camera movements, highlights and end card. New OneNMRD screens use the released v0.10.0 binary and Dim theme; the OFE scenes use OFE-Go 0.5.14 and OFE-GUI 0.5.15. The revised narration adds complete setup selection, magnet-defined diagnostic groups, actual row-start supply snapshots, explicitly unavailable PID gains, and direct versus vendor-console diagnostic routes. Hardware support is described as pending qualification. Narration is slightly slower, with longer sentence pauses for non-native English listeners.
-
-The final narration, synchronized subtitles and MP4 have **not yet been rendered/published**: downloading the original Piper Alba voice model is blocked by the capture host's network approval policy for `huggingface.co:443`. The existing published introduction remains available unchanged until the refreshed cut is verified.
+The original November 12 cut remains in the older video releases.
 
 **Every new screen comes from an isolated built-in simulator.** No hardware was used, no vendor program was run, and no coding agent was started. The acquisition uses the previous Prospa analysis so its original comparison with Prospa T1 remains visible; the Gaussian filter preview is 20 kHz. The simulator does not qualify any console. The ultraRelax8 check values are simulated too.
 
@@ -32,24 +30,11 @@ introduction/build/make.sh
 
 `make.sh` runs the shared build in [`kit/`](../kit) on this folder: it renders the slides, synthesizes the narration sentence by sentence (`narration.py` holds each sentence's caption text, spoken text, camera framing and highlight), renders the frames, normalizes the narration to −16 LUFS with a −1.5 dBTP ceiling, and writes `../onenmrd-introduction.mp4` with its embedded subtitles, plus the `.srt` and the script. `REUSE_AUDIO=1` keeps the audio of every unchanged sentence from the previous build in `build/out/`. The last 4 s are `kit/end-card.png`, a dark version of OneNMRD's `docs/social-preview.svg` (`kit/end-card.svg`).
 
-`build/shots/` holds the nine screens, captured at 3840×2160. `build/capture/shot.cjs` captured them from a running onenmrd-gui: `node shot.cjs OUT.png layouts/<scene>.json steps/<scene>.js`, with `GUI` the link onenmrd-gui prints at start (with its key), `PROFILE` a Chromium profile folder and `CHROME` if needed. `layouts/` holds each scene's pane layout and `steps/` what was done before the screenshot (`run.js` runs the plan and screenshots it every 4 s; 30-live.png is its seventh). The scenes need, in this order: `sequences`, `run`, `fit-ofe` (40-results), `terminal` (50), `open-ofe` (60, from OFE-GUI's tab), `noise` (35), `uspin` (10, with `IMPORT=1 CHECK1=… CHECK2=…` the first time: two logs from `fake-hardware -checklog`), `diagnostics` (45, with fake-hardware `-monitor` and the GUI's monitor enabled; `SCROLL=1 SKIPRUN=1` for 46). The config used:
-
-```json
-{
-  "listen": "127.0.0.1:8090",
-  "console": "kea",
-  "simulator": true,
-  "dataDir": "results",
-  "ofe": {"command": ["/opt/onefite-go/bin/onefite"], "gui": "http://127.0.0.1:9143", "guiPaths": "same"},
-  "terminal": {"enable": true, "shell": ["bash", "-l"], "agents": [{"name": "Claude", "command": "claude"}, {"name": "Codex", "command": "codex"}]}
-}
-```
-
-next to `onenmrd-gui`, `fake-hardware`, `consoles/` and `demo/` (both from the OneNMRD repository's `go-gui/testdata/demo`).
+`build/shots/` holds the eleven screens, captured at 3840×2160. The reproducible v0.10.0 capture procedure is below. The older `shot.cjs`, individual steps and layouts remain as the original capture sources; the new combined capture script updates their setup selectors, simulator configuration and diagnostics layout.
 
 ## Voice credit
 
-Narration was generated with Piper's `en_GB-alba-medium` voice. Its model card names the University of Edinburgh dataset at <https://datashare.ed.ac.uk/handle/10283/3270>, licensed under CC BY 4.0, and says the model was fine-tuned from the U.S. English Lessac voice. See the [Alba voice model card](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/alba/medium/MODEL_CARD) and the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+Narration was generated with Piper's `en_GB-alba-medium` voice. Its model card names the University of Edinburgh dataset at <https://datashare.ed.ac.uk/handle/10283/3270>, licensed under CC BY 4.0, and says the current model was fine-tuned from the Hi-Fi TTS Cori Samuel base voice. The refresh uses the model card’s recommended noise settings for smoother delivery. The voice model, configuration and model card are pinned by the download script. See the [Alba voice model card](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/alba/medium/MODEL_CARD) and the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
 ## Refreshing the v0.10.0 captures
 
@@ -65,4 +50,21 @@ CHROME=/path/to/chromium \
 node introduction/build/capture/refresh-v0100.cjs
 ```
 
-The OFE engine and OFE-GUI must already be available. Keep the capture work directory private: its log contains a temporary owner credential. Only the selected screenshots and caption/narration/build sources belong in this video repository. Public application source and macro files are not added.
+The OFE engine and OFE-GUI must already be available. Keep the capture work directory private: its log contains a temporary owner credential. Only the selected screenshots and caption/narration/build sources belong in this video repository. Private application source and Prospa macro files are not added.
+
+## Chapters
+
+```text
+00:00 OneNMRD Interface
+00:19 Consoles and magnets
+00:49 ultraRelax8
+01:09 Pulse sequences
+01:37 Sequences and plan
+02:05 Live acquisition
+02:45 Noise
+03:19 Magnet diagnostics
+04:31 Fit in OFE
+04:56 OFE-GUI
+05:08 Terminal and AI agents
+05:42 Closing
+```
