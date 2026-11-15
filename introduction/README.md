@@ -12,7 +12,13 @@ It covers:
 - Fit in OFE (OFE-Go) and Open in OFE-GUI;
 - the Terminal pane with its agent buttons and the AGENTS.md OneNMRD writes for them.
 
-**Every screen comes from OneNMRD's built-in simulator** (onenmrd-gui v0.6.1, the "Interface" header, Simulator on), run on a Linux test host with OFE-Go 0.5.14 and OFE-GUI 0.5.14 there. No hardware was used; the simulator does not qualify any console. The ultraRelax8's check values are simulated too. The narration describes the agent buttons as starting a separately installed agent; none was started for the video.
+**The published November 12 cut** uses OneNMRD v0.6.1 and OFE-Go/OFE-GUI 0.5.14.
+
+**The v0.10.0 refresh is in preparation:** its current script and captures in this branch retain the original narrated introduction, slides, camera movements, highlights and end card. New OneNMRD screens use the released v0.10.0 binary and Dim theme; the OFE scenes use OFE-Go 0.5.14 and OFE-GUI 0.5.15. The revised narration adds complete setup selection, magnet-defined diagnostic groups, actual row-start supply snapshots, explicitly unavailable PID gains, and direct versus vendor-console diagnostic routes. Hardware support is described as pending qualification. Narration is slightly slower, with longer sentence pauses for non-native English listeners.
+
+The final narration, synchronized subtitles and MP4 have **not yet been rendered/published**: downloading the original Piper Alba voice model is blocked by the capture host's network approval policy for `huggingface.co:443`. The existing published introduction remains available unchanged until the refreshed cut is verified.
+
+**Every new screen comes from an isolated built-in simulator.** No hardware was used, no vendor program was run, and no coding agent was started. The acquisition uses the previous Prospa analysis so its original comparison with Prospa T1 remains visible; the Gaussian filter preview is 20 kHz. The simulator does not qualify any console. The ultraRelax8 check values are simulated too.
 
 ## Building
 
@@ -44,3 +50,19 @@ next to `onenmrd-gui`, `fake-hardware`, `consoles/` and `demo/` (both from the O
 ## Voice credit
 
 Narration was generated with Piper's `en_GB-alba-medium` voice. Its model card names the University of Edinburgh dataset at <https://datashare.ed.ac.uk/handle/10283/3270>, licensed under CC BY 4.0, and says the model was fine-tuned from the U.S. English Lessac voice. See the [Alba voice model card](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_GB/alba/medium/MODEL_CARD) and the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+
+## Refreshing the v0.10.0 captures
+
+`build/capture/refresh-v0100.cjs` reproduces the new screens from the downloaded Linux/amd64 release, in a fresh private capture directory. It checks the released version and Dim theme, runs a four-field plan through the actual Run/confirmation controls, imports two emulator check logs, performs a real OFE fit and opens OFE-GUI, then captures the terminal's read-only API demonstration. `build/capture/shot-boxes.json` records the measured plot/pane bounds.
+
+```sh
+NMR_RELEASE_BIN=/path/to/extracted/onenmrd-gui-v0.10.0-linux-amd64 \
+NMR_CAPTURE_WORK=/path/to/new/private/capture-folder \
+NMR_OFE_COMMAND=/path/to/onefite \
+NMR_OFE_GUI=http://127.0.0.1:19143 \
+OFE_PATH=/path/to/engine \
+CHROME=/path/to/chromium \
+node introduction/build/capture/refresh-v0100.cjs
+```
+
+The OFE engine and OFE-GUI must already be available. Keep the capture work directory private: its log contains a temporary owner credential. Only the selected screenshots and caption/narration/build sources belong in this video repository. Public application source and macro files are not added.

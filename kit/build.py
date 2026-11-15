@@ -18,8 +18,8 @@ except ImportError:
 VOICE = os.environ.get("OFE_VOICE", os.path.join(KIT, "voices", "en_GB-alba-medium.onnx"))
 OUT = os.path.join(D, "out"); os.makedirs(OUT, exist_ok=True)
 W, H, FPS = 1920, 1080, 30
-BASE_LS, NOISE, NOISE_W = 1.1, 0.72, 0.85
-LEAD, GAP, TAIL, XF = 0.75, 0.5, 1.1, 0.6
+BASE_LS, NOISE, NOISE_W = 1.14, 0.72, 0.85
+LEAD, GAP, TAIL, XF = 0.8, 0.6, 1.2, 0.6
 only = set(sys.argv[1:])
 
 # --- narration -------------------------------------------------------------
