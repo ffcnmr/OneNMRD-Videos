@@ -6,7 +6,7 @@ The MP4 files are **release assets**, not files in this repository, so that clon
 
 | Video | Length | Download | Captions and script |
 | --- | --- | --- | --- |
-| OneNMRD Interface introduction (v0.10.0) | 6:19 | [onenmrd-introduction.mp4](https://github.com/ffcnmr/OneNMRD-Videos/releases/latest/download/onenmrd-introduction.mp4) | [captions](introduction/onenmrd-introduction.srt), [script](introduction/onenmrd-introduction-script.txt), [about](introduction/README.md) |
+| OneNMRD Interface introduction (v0.12.0) | 6:18 | [onenmrd-introduction.mp4](https://github.com/ffcnmr/OneNMRD-Videos/releases/latest/download/onenmrd-introduction.mp4) | [captions](introduction/onenmrd-introduction.srt), [script](introduction/onenmrd-introduction-script.txt), [about](introduction/README.md) |
 
 Every MP4 also has its subtitles as an embedded track; turn them on in the player.
 
