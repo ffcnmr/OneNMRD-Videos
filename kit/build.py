@@ -227,7 +227,7 @@ def render_section(si, tl, imgs, t):
                 X1, Y1 = int((x1 - r[0]) * sx), int((y1 - r[1]) * sy)
                 mask[max(Y0, 0):max(Y1, 0), max(X0, 0):max(X1, 0)] = 1
                 outs.append((X0, Y0, X1, Y1))
-            arr *= (1 - 0.5 * alpha * (1 - mask))[..., None]
+            arr *= (1 - 0.3 * alpha * (1 - mask))[..., None]
             frame = Image.fromarray(arr.clip(0, 255).astype(np.uint8))
             ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dr = ImageDraw.Draw(ov)
             for b in outs:
