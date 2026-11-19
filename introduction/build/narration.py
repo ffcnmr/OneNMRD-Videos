@@ -72,7 +72,7 @@ SECTIONS = [
      None, None, "live", (0, 600, 2300), (590, 940, 1400, 1520)),
     ("M(τ) of the current field builds up, point by point.",
      "M of tau, of the current field, builds up, point by point.", None, "live", (0, 840, 2300), (590, 1540, 1400, 2110)),
-    ("When a field is complete, it is fitted at once, with one, two or three exponentials, in milliseconds.",
+    ("The current field is fitted again each time a new point arrives, with one, two or three exponentials, in milliseconds; the fit is marked partial until the field is complete.",
      None, None, "live", (0, 840, 2300), (1430, 1540, 2270, 2110)),
     ("Meanwhile, Results follows the run: each finished field can be looked at while the next one is measured.",
      None, None, "live", (1600, 800, 2240), (2320, 930, 3820, 2040)),
@@ -151,3 +151,17 @@ SECTIONS = [
 
 # the dark social-preview banner, silent, after the last words
 END_CARD = ("endcard", 4.0)
+
+# Zoom limit (Pedro, 2026-11-19: "avoid the zooming so much"): every framing
+# of a captured screen keeps at least MIN_W of its 3840 px width in view, at
+# most 1.33x; a narrower framing is widened about its own centre (the kit
+# keeps it inside the picture, so it still holds its highlight). The
+# screens are captured at 2x, so no frame is upscaled past its pixels.
+MIN_W = 2880
+for _sec in SECTIONS:
+    for _i, _s in enumerate(_sec["sentences"]):
+        _x, _y, _w = _s[4]
+        if _s[3] in ("title", "consoles", "seqs", "close", "endcard") or _w >= MIN_W:
+            continue
+        _h, _H = _w * 9 / 16, MIN_W * 9 / 16
+        _sec["sentences"][_i] = _s[:4] + ((round(_x + _w / 2 - MIN_W / 2), round(_y + _h / 2 - _H / 2), MIN_W),) + _s[5:]
